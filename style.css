@@ -1,0 +1,413 @@
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #050505;
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* TEMA E FUNDO TRIDIMENSIONAL 3D */
+.bg-3d-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    transform: perspective(500px) rotateX(60deg) translateY(-100px) scale(2);
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* OBJETOS 3D VOANDO AO FUNDO */
+.orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(40px);
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.6;
+    animation: float 12s infinite ease-in-out alternate;
+}
+
+.orb1 {
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, #ffffff 0%, #333333 70%, transparent 100%);
+    top: 10%;
+    left: 10%;
+    animation-duration: 14s;
+}
+
+.orb2 {
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, #888888 0%, #111111 80%, transparent 100%);
+    bottom: 15%;
+    right: 5%;
+    animation-duration: 18s;
+}
+
+.orb3 {
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, #ffffff 0%, #555555 100%);
+    top: 60%;
+    left: 20%;
+    animation-duration: 10s;
+}
+
+.orb4 {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, #aaaaaa 0%, #000000 100%);
+    top: 20%;
+    right: 25%;
+    animation-duration: 16s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+    50% {
+        transform: translateY(-50px) rotate(180deg) scale(1.1);
+    }
+    100% {
+        transform: translateY(30px) rotate(360deg) scale(0.95);
+    }
+}
+
+/* LAYOUT CONTAINER */
+.container {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* CABEÇALHO COM GRADIENTE */
+.header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.gradient-text {
+    font-size: 2.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff 0%, #aaaaaa 50%, #444444 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-shadow: 0 10px 20px rgba(255, 255, 255, 0.05);
+}
+
+.subtitle {
+    color: #a0a0a0;
+    font-size: 1.1rem;
+}
+
+/* ESTILO GLASSMORPHISM (Efeito de Vidro Escuro) */
+.glass {
+    background: rgba(20, 20, 20, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.glass:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* APRESENTAÇÃO */
+.intro-card h2 {
+    color: #ffffff;
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.intro-card p {
+    color: #cccccc;
+    line-height: 1.6;
+}
+
+.intro-card strong {
+    color: #ffffff;
+}
+
+/* SESSÃO TAREFAS */
+.todo-section h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-group {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 14px 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #ffffff;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ffffff 0%, #888888 100%);
+    color: #000;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.task-list {
+    list-style: none;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: background 0.3s ease;
+}
+
+.task-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.task-item span {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.task-item span.completed {
+    text-decoration: line-through;
+    color: #777;
+}
+
+.btn-delete {
+    background: transparent;
+    border: none;
+    color: #ff5555;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 5px 8px;
+    border-radius: 5px;
+    transition: background 0.2s;
+}
+
+.btn-delete:hover {
+    background: rgba(255, 85, 85, 0.15);
+}
+
+/* CARDS DE DICAS */
+.section-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #aaaaaa;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.card-btn {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* EFEITO MODAL (DESTAQUE SOBRE A PÁGINA) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.glass-modal {
+    background: linear-gradient(145deg, rgba(30, 30, 30, 0.95), rgba(10, 10, 10, 0.98));
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 550px;
+    padding: 30px;
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.15);
+    position: relative;
+    transform: scale(0.8) translateY(30px);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-overlay.active .glass-modal {
+    transform: scale(1) translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: #aaaaaa;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: #ffffff;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+}
+
+.modal-icon {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+.modal-body {
+    color: #dddddd;
+    line-height: 1.6;
+}
+
+.modal-body ul {
+    margin: 15px 0 20px 20px;
+}
+
+.modal-body li {
+    margin-bottom: 8px;
+}
+
+.davi-tag {
+    background: rgba(255, 255, 255, 0.08);
+    border-left: 3px solid #ffffff;
+    padding: 10px 15px;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.9rem;
+    color: #fff;
+    margin-top: 15px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 600px) {
+    .gradient-text {
+        font-size: 2rem;
+    }
+    .input-group {
+        flex-direction: column;
+    }
+    .btn-primary {
+        width: 100%;
+    }
+}

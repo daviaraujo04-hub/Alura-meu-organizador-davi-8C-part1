@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizador do Davi sapeca</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Ícones FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Fundo 3D com Esferas e Grade Tridimensional -->
+    <div class="bg-3d-grid"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="orb orb4"></div>
+
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header class="header">
+            <h1 class="gradient-text">Organizador do Davi sapeca</h1>
+            <p class="subtitle">Sua central de produtividade, rotinas e alto rendimento com um toque moderno.</p>
+        </header>
+
+        <!-- Descrição da Página -->
+        <section class="intro-card glass">
+            <h2><i class="fa-solid fa-compass"></i> Bem-vindo ao seu Painel!</h2>
+            <p>
+                Esta plataforma foi desenhada sob medida para organizar o dia a dia do <strong>Davi sapeca</strong>. 
+                Aqui você pode estruturar suas metas diárias, manter o foco nas suas rotinas e conferir dicas valiosas 
+                de alto desempenho com um visual totalmente futurista em estilo <em>Dark Glassmorphism</em>.
+            </p>
+        </section>
+
+        <!-- Seção Interativa de Tarefas / Rotina -->
+        <section class="todo-section glass">
+            <h2><i class="fa-solid fa-list-check"></i> Minhas Tarefas & Rotinas</h2>
+            <div class="input-group">
+                <input type="text" id="taskInput" placeholder="Digite uma nova tarefa ou rotina...">
+                <button onclick="addTask()" class="btn-primary"><i class="fa-solid fa-plus"></i> Adicionar</button>
+            </div>
+            <ul id="taskList" class="task-list">
+                <!-- Exemplo inicial de tarefas -->
+                <li class="task-item">
+                    <span><i class="fa-regular fa-circle"></i> Organizar os estudos da semana</span>
+                    <button onclick="removeTask(this)" class="btn-delete"><i class="fa-solid fa-trash"></i></button>
+                </li>
+                <li class="task-item">
+                    <span><i class="fa-regular fa-circle"></i> Fazer exercícios físicos (Sem preguiça!)</span>
+                    <button onclick="removeTask(this)" class="btn-delete"><i class="fa-solid fa-trash"></i></button>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Cards Interativos de Dicas -->
+        <section class="tips-section">
+            <h2 class="section-title"><i class="fa-solid fa-lightbulb"></i> Dicas de Alto Rendimento</h2>
+            <div class="cards-grid">
+                
+                <!-- Card 1 -->
+                <div class="card glass" onclick="openModal('modal1')">
+                    <div class="card-icon"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3>Foco Extremo</h3>
+                    <p>Aprenda a dominar a técnica Pomodoro e mantenha a concentração total nas tarefas...</p>
+                    <span class="card-btn">Ver dica completa <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card glass" onclick="openModal('modal2')">
+                    <div class="card-icon"><i class="fa-solid fa-calendar-day"></i></div>
+                    <h3>Blocos de Tempo</h3>
+                    <p>Divida o seu dia do Davi sapeca em horários fixos para evitar procrastinação...</p>
+                    <span class="card-btn">Ver dica completa <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card glass" onclick="openModal('modal3')">
+                    <div class="card-icon"><i class="fa-solid fa-battery-full"></i></div>
+                    <h3>Energia & Descanso</h3>
+                    <p>Não adiantar ter disciplina sem recuperar a energia vital do seu corpo...</p>
+                    <span class="card-btn">Ver dica completa <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- MODAIS (Pop-ups) -->
+    
+    <!-- Modal 1 -->
+    <div id="modal1" class="modal-overlay" onclick="closeModalOnOuterClick(event, 'modal1')">
+        <div class="modal-content glass-modal">
+            <button class="modal-close" onclick="closeModal('modal1')">&times;</button>
+            <div class="modal-header">
+                <i class="fa-solid fa-bullseye modal-icon"></i>
+                <h2>Técnica de Foco Extremo</h2>
+            </div>
+            <div class="modal-body">
+                <p><strong>Como aplicar a técnica Pomodoro no seu dia:</strong></p>
+                <ul>
+                    <li>Escolha uma tarefa única do seu organizador.</li>
+                    <li>Trabalhe nela durante <strong>25 minutos</strong> sem distrações (celular no silencioso).</li>
+                    <li>Faça uma pausa rápida de <strong>5 minutos</strong>.</li>
+                    <li>A cada 4 blocos de foco, faça uma pausa maior de 15 a 30 minutos.</li>
+                </ul>
+                <p class="davi-tag">⚡ Dica para o Davi: Evite trocar de tarefa no meio do bloco!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div id="modal2" class="modal-overlay" onclick="closeModalOnOuterClick(event, 'modal2')">
+        <div class="modal-content glass-modal">
+            <button class="modal-close" onclick="closeModal('modal2')">&times;</button>
+            <div class="modal-header">
+                <i class="fa-solid fa-calendar-day modal-icon"></i>
+                <h2>Gerenciamento por Blocos</h2>
+            </div>
+            <div class="modal-body">
+                <p>Organize suas tarefas por categorias de prioridade e horários exatos:</p>
+                <ul>
+                    <li><strong>Manhã:</strong> Tarefas que exigem mais raciocínio e foco.</li>
+                    <li><strong>Tarde:</strong> Reuniões, estudos leves ou execução operacional.</li>
+                    <li><strong>Noite:</strong> Organização do dia seguinte e descompressão.</li>
+                </ul>
+                <p class="davi-tag">⚡ Dica para o Davi: Defina suas 3 prioridades da semana no domingo!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div id="modal3" class="modal-overlay" onclick="closeModalOnOuterClick(event, 'modal3')">
+        <div class="modal-content glass-modal">
+            <button class="modal-close" onclick="closeModal('modal3')">&times;</button>
+            <div class="modal-header">
+                <i class="fa-solid fa-battery-full modal-icon"></i>
+                <h2>Recuperação & Consistência</h2>
+            </div>
+            <div class="modal-body">
+                <p>Sua rotina só é sustentável se o seu corpo e sua mente estiverem em sintonia:</p>
+                <ul>
+                    <li>Beba pelo menos 2 a 3 litros de água durante o dia.</li>
+                    <li>Durma entre 7 a 8 horas por noite para consolidação da memória.</li>
+                    <li>Faça pausas ativas (alongue-se ou caminhada rápida).</li>
+                </ul>
+                <p class="davi-tag">⚡ Dica para o Davi: Mente descansada produz 2x mais rápido!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript para Interatividade -->
+    <script>
+        // Função para Adicionar Tarefas
+        function addTask() {
+            const input = document.getElementById('taskInput');
+            const taskText = input.value.trim();
+
+            if (taskText === '') {
+                alert('Por favor, digite uma tarefa!');
+                return;
+            }
+
+            const ul = document.getElementById('taskList');
+            const li = document.createElement('li');
+            li.className = 'task-item';
+            li.innerHTML = `
+                <span><i class="fa-regular fa-circle"></i> ${taskText}</span>
+                <button onclick="removeTask(this)" class="btn-delete"><i class="fa-solid fa-trash"></i></button>
+            `;
+
+            // Marcar como concluído ao clicar no texto
+            li.querySelector('span').onclick = function() {
+                this.classList.toggle('completed');
+                const icon = this.querySelector('i');
+                if (this.classList.contains('completed')) {
+                    icon.className = 'fa-solid fa-circle-check';
+                } else {
+                    icon.className = 'fa-regular fa-circle';
+                }
+            };
+
+            ul.appendChild(li);
+            input.value = '';
+        }
+
+        // Função para Remover Tarefa
+        function removeTask(btn) {
+            const li = btn.parentElement;
+            li.remove();
+        }
+
+        // Funções dos Modais
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        function closeModalOnOuterClick(event, modalId) {
+            if (event.target.classList.contains('modal-overlay')) {
+                closeModal(modalId);
+            }
+        }
+
+        // Adicionar eventos nas tarefas padrão iniciais
+        document.querySelectorAll('.task-item span').forEach(span => {
+            span.onclick = function() {
+                this.classList.toggle('completed');
+                const icon = this.querySelector('i');
+                if (this.classList.contains('completed')) {
+                    icon.className = 'fa-solid fa-circle-check';
+                } else {
+                    icon.className = 'fa-regular fa-circle';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
